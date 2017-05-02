@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+    </head>
+    <body>
+        
+    <h2>rural and urban<h2><div id="linechart"><svg style="width:1000px;height:450px;"></svg></div>
+
+
+    <script>
+
+
+
+            data_linechart=[{"values": [{"y": 4.87, "x": 1951}, {"y": 10.1, "x": 1961}, {"y": 15.5, "x": 1971}, {"y": 21.7, "x": 1981}, {"y": 30.17, "x": 1991}, {"y": 46.7, "x": 2001}, {"y": 58.75, "x": 2011}], "key": "Rural Female", "yAxis": "1"}, {"values": [{"y": 19.02, "x": 1951}, {"y": 34.3, "x": 1961}, {"y": 48.6, "x": 1971}, {"y": 49.6, "x": 1981}, {"y": 56.96, "x": 1991}, {"y": 71.4, "x": 2001}, {"y": 78.57, "x": 2011}], "key": "Rural Male", "yAxis": "1"}, {"values": [{"y": 22.33, "x": 1951}, {"y": 40.5, "x": 1961}, {"y": 48.8, "x": 1971}, {"y": 56.3, "x": 1981}, {"y": 64.05, "x": 1991}, {"y": 73.2, "x": 2001}, {"y": 79.92, "x": 2011}], "key": "Urban Female", "yAxis": "1"}, {"values": [{"y": 45.6, "x": 1951}, {"y": 66.0, "x": 1961}, {"y": 69.8, "x": 1971}, {"y": 76.7, "x": 1981}, {"y": 81.09, "x": 1991}, {"y": 86.7, "x": 2001}, {"y": 89.67, "x": 2011}], "key": "Urban Male", "yAxis": "1"}];
+
+
+        nv.addGraph(function() {
+        var chart = nv.models.lineChart();
+
+        chart.margin({top: 30, right: 60, bottom: 20, left: 60});
+
+        var datum = data_linechart;
+
+
+
+                chart.yAxis
+                .tickFormat(d3.format(',.02f'));
+
+
+
+          chart.showLegend(true);
+
+
+    
+
+        
+
+
+
+            d3.select('#linechart svg')
+            .datum(datum)
+            .transition().duration(500)
+            .attr('width', 1000)
+            .attr('height', 450)
+            .call(chart);
+
+
+        });
+
+
+
+    </script>
+
+    </body>
+</html>
